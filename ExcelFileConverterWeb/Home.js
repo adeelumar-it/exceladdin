@@ -60,7 +60,7 @@ app.controller('edgelegalctrl', function ($scope, $mdDialog, $mdToast, $log, $lo
 
             }
             function openDialog() {
-                Office.context.ui.displayDialogAsync('https://localhost:44311/Templates/Login.html', { height: 50, width: 30 },
+                Office.context.ui.displayDialogAsync('https://github.com/adeelumar-it/exceladdin.git/Templates/Login.html', { height: 50, width: 30 },
                     function (asyncResult) {
                         dialog = asyncResult.value;
                         dialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
@@ -123,7 +123,7 @@ app.controller('edgelegalctrl', function ($scope, $mdDialog, $mdToast, $log, $lo
                                                 // Access the workbook name
                                                 var workbookName = workbook.name;
                                                 $scope.Filename = workbookName;
-                                                Office.context.ui.displayDialogAsync(`https://localhost:44311/Templates/MatterNumber.html?workbookName=${workbookName}`, { height: 50, width: 30 },
+                                                Office.context.ui.displayDialogAsync(`https://github.com/adeelumar-it/exceladdin.git/Templates/MatterNumber.html?workbookName=${workbookName}`, { height: 50, width: 30 },
                                                     function (asyncResult) {
                                                         MatterNumberdialog = asyncResult.value;
                                                         MatterNumberdialog.addEventHandler(Office.EventType.DialogMessageReceived, processMessage);
