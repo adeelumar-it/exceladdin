@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -162,6 +162,11 @@
                 outline: none;
                 border: solid rgb(63,81,181) 2px
             }
+
+        .hidden {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -179,7 +184,9 @@
                 <input type="password" id="password" name="password" required>
             </div>
 
-
+            <div id="errorMessage" class="hidden" style="background:red;color:white">
+                <p>An error occurred. Please try again.</p>
+            </div>
         </form>
         <div style="text-align: center;">
             <button onclick="click_button()" class="button-3" id="loginButton">Login</button>
@@ -208,43 +215,49 @@
 
         console.log('Username:', username);
         console.log('Password:', password);
-        var form = new FormData();
-        form.append("userName", username);
-        form.append("password", password);
+        //formdata.append("userName", "testuser10@gmail.com");
+        //formdata.append("password", "Confront10");
+
+
+        var formdata = new FormData();
+        formdata.append("userName", username);
+        formdata.append("password", password);
 
         var settings = {
-            "url": "https://edgelegal.co/LPDM/RT/WS/login",
+            "url": "https://grazingdelights.com.au/LPDM/RT/WS/login",
             "method": "POST",
             "timeout": 0,
             "headers": {
-                "Cookie": "JSESSIONID=768172C31E2A0176F3DDCA7F3C6F9B64"
+                // "Cookie": "JSESSIONID=A39F64555B1DF331F79918D0B65C774D.tc-node1"
             },
             "processData": false,
-            "mimeType": "multipart/form-data",
-            "contentType": false,
-            "data": form
+            "contentType": false, // Change this to false to prevent jQuery from setting a content type
+            "data": formdata
         };
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-        }).fail(function (error) {
+                   var objmessage = {
 
+                login: true
+             };
+           Office.context.ui.messageParent(JSON.stringify(objmessage));
+        }).fail(function (xhr, status, error) {
             console.log(error)
+            //$(document).ready(function () {
+              
+            //    $('#errorMessage').removeClass('hidden').show();
+
+            //    setTimeout(function () {
+            //        $('#errorMessage').hide();
+            //    }, 2000);
+            //});
 
         });
-       // if (username === "adeel" && password === "123") {
-        //    console.log('Success: Logged in');
-        //    var objmessage = {
-        //        userName: username,
-        //        password: password,
-        //        login: true
-        //    };
-        //    Office.context.ui.messageParent(JSON.stringify(objmessage));
-        //} else {
-        //    console.log('Error: Authentication failed. Please check your credentials.');
-        //}
+       
+       
     }
-
+   
     function cancel() {
         let objmessage = {
 
