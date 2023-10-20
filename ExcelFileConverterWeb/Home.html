@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -66,14 +66,14 @@
     </div>
 
     <md-toolbar class="md-hue-2" style="background-color: rgb(63,81,181); min-height: 10vh; height: 5vh; " ng-show="ShowMainDiv">
-       
+
         <div class="md-toolbar-tools" style=" justify-content: space-between;">
             <div>
 
                 <h3 style="font-size: 17px; font-weight: bolder; color: whitesmoke; ">Edge Legal</h3>
             </div>
 
-         
+
             <div>
 
                 <!--<md-icon style="cursor:pointer" ng-click="refreshAddin()">refresh</md-icon>-->
@@ -89,18 +89,18 @@
                     <md-menu-content width="2">
 
 
-                        <md-menu-item>
+                        <md-menu-item ng-show="userName ">
                             <md-button>
-                                <md-icon >person</md-icon>
+                                <md-icon>person</md-icon>
                                 <span md-menu-align-target style="font-weight:bold">{{userName}}</span>
 
                             </md-button>
 
                         </md-menu-item>
-                        
+
                         <md-menu-item>
                             <md-button ng-click="Help()">
-                                <md-icon >help</md-icon>
+                                <md-icon>help</md-icon>
                                 <span md-menu-align-target>Help</span>
 
                             </md-button>
@@ -124,16 +124,18 @@
 
         </div>
     </md-toolbar>
+
+    <!--<md-button ng-hide="ShowRefreshBTN">Refresh to Login</md-button>-->
     <div ng-show="ShowMainDiv">
 
         <div layout="column" style="padding: 8px; margin-top: 12px;">
 
 
 
-           
+
             <div layout="column" layout-align="center center" style=" padding: 5px;">
 
-                <md-button id="disebledBTN" style="width: 53%; min-width: 100px; background: rgb(63,81,181); color: white; border: 3px; border-radius: 4px; position: absolute; top: 26%; " ng-click="getFilebase64($event)"  }">
+                <md-button id="disebledBTN" style="width: 53%; min-width: 100px; background: rgb(63,81,181); color: white; border: 3px; border-radius: 4px; position: absolute; top: 26%; " ng-click="getFilebase64($event)" }">
 
                     Upload File
                     <md-icon style=" color: white; margin-bottom: 5px; margin-left: 16px;margin-right:16px">
@@ -149,14 +151,34 @@
 
             <!--<div layout="column" layout-align="center center" style=" padding: 5px;">
 
-        <md-button style="width: 90%; min-width: 100px; background: #338146; color: white; border: 3px; border-radius: 10px; " ng-click="getbase()">
+                <md-button style="width: 90%; min-width: 100px; background: #338146; color: white; border: 3px; border-radius: 10px; " ng-click="getbase()">
 
-            Mater Number
+                    Mater Number
+                </md-button>
+            </div>-->
+
+        </div>
+
+
+    </div>
+
+    <div ng-hide="wordMainDiv" class="center-container">
+        <md-button ng-click="convertToWord();open($event)">
+            <div style="text-align: center;">
+                <img style="height: 40px;" src="/Images/wordlogo.png" />
+                <br /> <!-- Add a line break to move the text below the image -->
+                Save As Word
+            </div>
         </md-button>
-    </div>-->
-
-        </div>
-        </div>
+        <!--<md-button ng-click="open($event)">model</md-button>-->
+        <md-button ng-click="convertToPDF()">
+            <div style="text-align: center;">
+                <img style="height: 40px;" src="/Images/pdflogo.png" />
+                <br /> <!-- Add a line break to move the text below the image -->
+                Save As PDF
+            </div>
+        </md-button>
+    </div>
 
 </body>
 </html>
