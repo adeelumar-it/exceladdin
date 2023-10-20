@@ -1,4 +1,4 @@
-﻿
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -236,9 +236,15 @@
             console.log('Success: Logged in');
             var objmessage = {
                 matternumber: matternumber,
-                filename: filename,
-                filecontent: "ccc",
+                fileInputStream: "ccc",
+                originalName: filename,
+                contentDispositionHeader: filename,
             };
+
+
+
+        
+
             Office.context.ui.messageParent(JSON.stringify(objmessage));
         } else {
             console.log('Error: Authentication failed. Please check your credentials.');
